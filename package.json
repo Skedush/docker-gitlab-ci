@@ -1,0 +1,11 @@
+{
+  "name": "docker_demo",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "koa": "^2.5.0"
+  }
+}

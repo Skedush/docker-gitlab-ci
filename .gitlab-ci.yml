@@ -1,0 +1,21 @@
+image: docker:latest
+variables: #2
+  # DOCKER_DRIVER: overlay2
+  DOCKER_HOST: tcp://172.16.1.241:2375 # docker host，本地可不写
+  TAG: root/hello-doocker:v1
+
+before_script:
+  - echo "hello gitlab ci"
+stages:
+  - build
+  # - deploy
+build_job: # 定义一个job
+  image: docker:latest
+
+  stage: build # 设置job所属的stage，默认是test
+  tags:
+    - node
+  script: # 定义后面Runner来执行的具体脚本
+    - docker build -t $TAG .
+    - docker rm -f test || true
+    - docker run -d --name test -p 3000:3000 $TAG
