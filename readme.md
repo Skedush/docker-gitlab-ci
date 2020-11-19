@@ -28,6 +28,7 @@ gitlab/gitlab-ce:latest
 
 
 3. 找到Nginx监听端口行文件$HOME/gitlab/config/gitlab.rb中  找到并修改#nginx['listen_port']=nil-->nginx['listen_port'] = 80，或者直接添加nginx['listen_port'] = 80保存  
+external_url 'http://10.211.55.5:30000/' git克隆项目url
 	
 
 `docker restart gitlab-ce `
